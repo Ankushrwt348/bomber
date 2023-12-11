@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bomber</title>
-    <link rel="shortcut icon"  type="image/x-icon" href="bomb.png">
+    <link rel="shortcut icon" type="image/x-icon" href="bomb.png">
     <script src="https://kit.fontawesome.com/0bc203b0aa.js" crossorigin="anonymous"></script>
+    
+
     <link rel="stylesheet" href="game.css">
 </head>
+
 <body>
     <div class="background">
-        <h1>Lets play.....</h1>
+      <h1>Lets play.....</h1>
+        <h1 class="Counter">score 0</h1>
         <div class="container" id="myDiv">
-           
+
             <div id="game"></div>
             <button id="button" onclick="window.location.reload()">reset game</button>
         </div>
     </div>
     <footer>
         <p>© 2023 | Privacy Policy | Terms of Service</p>
-        <p>made with ❤️  by Ankush Rawat        </p>
+        <p>made with ❤️ by Ankush Rawat </p>
     </footer>
     <script>
-        const array=["💣","💣","💣","💣","💣",
-        "💣","💣","💣","💣","💣","💣","💣","💣","💣","💣",
-        "💣","💣","💣","💣","💥",];
-        const array1=array.sort(() => (Math.random() > .5) ? 1 : -1);
-        for(i=0;i<20;i++){
-        const item = document.createElement("p");
-         item.className="item"
-         item.onclick = function(index) {
-            
-            return function() {
-              let arr = array[index];
-              this.classList.toggle('open');
- 
-             if( arr=='💥' ){
-              
-                alert(" you lost 💥");
-                window.location.reload();
-             }
-            };
-          }(i);
-        item.innerHTML = array[i];
-        document.getElementById("game").appendChild(item);
+
+        let count = 0;
+        const array = ["💣", "💣", "💣", "💣", "💣",
+            "💣", "💣", "💣", "💣", "💣", "💣", "💣", "💣", "💣", "💣",
+            "💣", "💣", "💣", "💣", "💥"];
+        const score = 0;
+        const array1 = array.sort(() => (Math.random() > .5) ? 1 : -1);
+        for (i = 0; i < 20; i++) {
+            const item = document.createElement("p");
+            item.className = "item"
+            item.onclick = function (index) {
+
+                return function () {
+
+                    count = count + 10;
+                    let score = "score";
+                    document.querySelector(".Counter").innerText = `${score}` + ' ' + count;
+                    console.log(count);
+                    let arr = array[index];
+                    this.classList.toggle('open');
+                    function repeatCall() {
+                        
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                    if (arr == '💥') {
+                        alert("you lost the game try again")
+                        repeatCall();
+                    }
+                    if (count == 200) {
+                       alert("congratulations")
+                        repeatCall();
+                    }
+
+                };
+            }(i);
+            item.innerHTML = array[i];
+            document.getElementById("game").appendChild(item);
         }
-       
-       
-   
     </script>
+
+
 </body>
+
 </html>

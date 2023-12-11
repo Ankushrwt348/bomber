@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.popup{
+    display: none;
+}
+
 .background{
     background-color: darkgreen;
     width: 100%;
@@ -83,7 +87,7 @@ h1{
 }
 footer{
     background-color: rgb(48, 46, 46);
-    height: 20vh;
+    height: 20%;
     color: white;
     text-align: center;
     display: flex;
