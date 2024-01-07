@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .container{
@@ -41,9 +42,10 @@ border-radius: 5px;
 cursor: pointer;
 }
 h1{
-    font-size: 50px;
-    margin-bottom: 40px;
-    color: rgb(226, 242, 53);
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
+    color: rgb(255, 255, 255);
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 #game{
@@ -51,7 +53,10 @@ h1{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-   
+    font-size: 5rem;
+    color: aliceblue;
+    /* padding: 4rem; */
+
 }
 .item{
    position: relative;
@@ -76,7 +81,6 @@ h1{
 }
 .open:after{
     transform:rotateY(180deg);
-   
 }
 footer{
     background-color: rgb(48, 46, 46);
@@ -84,6 +88,20 @@ footer{
     color: white;
     text-align: center;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    bottom:0 ;
 }
+
+@media only screen and (max-width: 600px) {
+    .container{
+      width: 90%;
+      height: 100%;
+    }
+    .item{
+        font-size: 20px;
+        padding: 10px;
+    }
+  }
